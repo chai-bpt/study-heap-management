@@ -1,2 +1,7 @@
 gcc main.c
-./a.out 
+./a.out
+ps -ef
+cd /proc/<PID>/
+cat map
+cat mem
+ 

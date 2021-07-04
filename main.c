@@ -10,5 +10,7 @@ int main(void)
 
 	printf("\n\tcurrent_brk = %p",current_brk);
 
+	getchar();
+
 	printf("\n\t%s\t%s\t%s\t%s\t%d\tEND\n",__DATE__,__TIME__,__FILE__,__func__,__LINE__);
 }

@@ -2,6 +2,6 @@ gcc main.c
 ./a.out
 ps -ef
 cd /proc/<PID>/
-cat map
+cat maps
 cat mem
  

@@ -19,11 +19,11 @@ int main(void)
 	printf("\n\tprevious_brk = %p",previous_brk);
 	printf("\n\tcurrent_brk  = %p",current_brk);
 	getchar();
-	
 
+	printf("\n\t-------INCREASE LOOP START---------");
 	for(loopcounter = 0; loopcounter < loopmax; loopcounter++)
 	{
-		printf("\n\t%d times increasing heap memory by %d bytes", (loopcounter+1), size);
+		printf("\n\t%d times INCREASING heap memory by %d bytes", (loopcounter+1), size);
 		sbrk(size);
 		current_brk = sbrk(0);	
 		printf("\n\tstart_brk    = %p",start_brk);
@@ -34,6 +34,22 @@ int main(void)
 		previous_brk = current_brk;
 		getchar();
 	}
+
+	printf("\n\t-------DECREASE LOOP START---------");
+        for(loopcounter = 0; loopcounter < loopmax; loopcounter++)
+        {
+                printf("\n\t%d times DECREASING heap memory by %d bytes", (loopcounter+1), size);
+                brk(current_brk - size);
+		current_brk = sbrk(0);	
+                printf("\n\tstart_brk    = %p",start_brk);
+                printf("\n\tprevious_brk = %p",previous_brk);
+                printf("\n\tcurrent_brk  = %p",current_brk);
+                printf("\n\tCURRENT DECREASE :: previous_brk - current_brk = %d",(previous_brk - current_brk));
+                printf("\n\tTOTAL INCREASE   :: current_brk - start_brk    = %d",(current_brk - start_brk));
+                previous_brk = current_brk;
+                getchar();
+        }
+
 
 	printf("\n\t%s\t%s\t%s\t%s\t%d\tEND\n",__DATE__,__TIME__,__FILE__,__func__,__LINE__);
 }
